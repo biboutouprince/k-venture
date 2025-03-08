@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>K-Venture</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* Palette de couleurs */
+      :root {
+        --primary-green: #2e7d32; /* Vert foncé */
+        --secondary-green: #388e3c; /* Vert intermédiaire */
+        --light-green: #c8e6c9; /* Vert clair */
+        --dark-green: #1e5631; /* Vert très foncé */
+        --highlight-green: #4caf50; /* Vert plus vif */
+        --lime-green: #a4de02; /* Vert lime */
+      }
+
+      /* Corps de page */
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f9f9f9;
+        color: #333;
+      }
+
+      /* Navbar */
+      .navbar {
+        background-color: var(--primary-green);
+      }
+
+      .navbar-nav .nav-link {
+        color: white;
+      }
+
+      .navbar-nav .nav-link:hover {
+        color: var(--lime-green);
+      }
+
+      /* Section d'accueil avec image de fond */
+      .hero-section {
+        position: relative;
+        background: url("background.jpg") no-repeat center center/cover;
+        height: 100vh; /* Plein écran */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+      }
+
+      /* Overlay pour améliorer la lisibilité du texte */
+      .hero-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5); /* Assombrit légèrement l’image */
+      }
+
+      /* Empêcher l'overlay de cacher le contenu */
+      .hero-section .container {
+        position: relative;
+        z-index: 2;
+      }
+
+      /* Boutons */
+      .btn-primary {
+        background-color: var(--primary-green);
+        border-color: var(--primary-green);
+      }
+
+      .btn-primary:hover {
+        background-color: var(--secondary-green);
+        border-color: var(--secondary-green);
+      }
+
+      .btn-secondary {
+        background-color: var(--highlight-green);
+        border-color: var(--highlight-green);
+      }
+
+      .btn-secondary:hover {
+        background-color: var(--lime-green);
+        border-color: var(--lime-green);
+      }
+
+      /* Section Articles */
+      #articles {
+        background-color: #f9f9f9; /* Couleur de fond claire */
+        padding: 50px 0;
+      }
+
+      .card {
+        border: none; /* Pas de bordure */
+        border-radius: 10px; /* Bords légèrement arrondis */
+        overflow: hidden;
+      }
+
+      .card-img-top {
+        height: 250px; /* Hauteur de l'image */
+        object-fit: cover; /* Ajuste l'image pour qu'elle couvre entièrement l'espace */
+      }
+
+      .card-body {
+        background-color: white;
+        padding: 20px;
+      }
+
+      .card-title {
+        font-size: 1.25rem;
+        font-weight: bold;
+      }
+
+      .card-text {
+        font-size: 1rem;
+        color: #555;
+      }
+
+      .btn-primary {
+        background-color: var(--primary-green);
+        border-color: var(--primary-green);
+      }
+
+      .btn-primary:hover {
+        background-color: var(--secondary-green);
+        border-color: var(--secondary-green);
+      }
+
+      /* Formulaire de contact */
+      .form-control {
+        border-color: var(--secondary-green);
+      }
+
+      .form-control:focus {
+        border-color: var(--highlight-green);
+      }
+
+      /* Formulaire de contact */
+      .form-control {
+        border-color: var(--secondary-green);
+      }
+
+      .form-control:focus {
+        border-color: var(--highlight-green);
+      }
+
+      /* Section principale */
+      section {
+        padding: 50px 0;
+      }
+
+      /* Section Bio */
+      .bio-section {
+        display: flex;
+        align-items: center;
+        margin-top: 40px;
+      }
+
+      .bio-section img {
+        border-radius: 50%;
+        width: 180px;
+        height: 180px;
+        margin-right: 30px;
+      }
+
+      .bio-section .content {
+        max-width: 600px;
+      }
+
+      /* Styliser les boutons de l'accordéon */
+.accordion-button {
+  background-color: var(--primary-green);
+  color: white;
+  font-weight: bold;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: var(--secondary-green);
+  color: white;
+}
+
+.accordion-button:hover {
+  background-color: var(--highlight-green);
+}
+
+.accordion-body {
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+
+      footer {
+        background-color: var(--dark-green);
+      }
+
+      .footer-logo {
+        width: 180px; /* Taille du logo */
+        height: auto;
+      }
+
+      .footer-links {
+        display: flex; /* Utilise flexbox pour aligner les liens horizontalement */
+        justify-content: center; /* Centre les liens */
+        gap: 30px; /* Espacement entre les liens */
+      }
+
+      .footer-link {
+        color: white; /* Texte des liens en blanc */
+        text-decoration: none; /* Pas de soulignement */
+        font-weight: bold;
+        padding: 5px 0; /* Espacement vertical pour améliorer la cliquabilité */
+      }
+
+      .footer-link:hover {
+        color: var(
+          --primary-green
+        ); /* Changement de couleur en vert lors du hover */
+        text-decoration: underline; /* Souligner les liens lors du hover */
+      }
+
+      footer .btn {
+        margin-right: 10px; /* Espace entre les boutons des réseaux sociaux */
+      }
+      /* Section Témoignages */
+.testimonial-box {
+    background: #C8E6C9; /* Vert clair */
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.testimonial-box:hover {
+    transform: scale(1.05);
+}
+
+/* Images des clients */
+.testimonial-box img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #2E7D32; /* Vert foncé */
+}
+
+/* Texte des témoignages */
+.testimonial-text {
+    font-style: italic;
+    color: #1E5631;
+}
+
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">
+            <img src="logo1.jpeg" alt="K-Venture" height="50">
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html"
+                >Accueil</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#services">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="About.html">À Propos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="blog.html">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Section Services -->
+    <section id="services" class="container my-5">
+      <!-- Coaching Individuel & Collectif -->
+      <div class="row align-items-center mb-5">
+        <div class="col-md-6">
+          <h3>Coaching Individuel & Collectif</h3>
+          <p>
+            Un accompagnement sur mesure pour développer vos compétences en
+            leadership et en communication.
+          </p>
+          <ul>
+            <li>Coaching de dirigeants et managers</li>
+            <li>Coaching d'équipe et cohésion</li>
+            <li>Développement personnel et professionnel</li>
+          </ul>
+          <a href="#articles" class="btn btn-success">En savoir plus</a>
+        </div>
+        <div class="col-md-6">
+          <img src="cc1.jpeg" class="img-fluid rounded" alt="Coaching" />
+        </div>
+      </div>
+
+       <!-- Section Articles -->
+    <section id="articles" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Coaching individuel/collectif</h2>
+          <div class="row">
+            <!-- Article 1 : Coaching Transformationnel -->
+            <div class="col-md-6 mb-4">
+              <div class="card">
+                <img
+                  src="individuel.jpeg"
+                  alt="Coaching Transformationnel"
+                  class="card-img-top"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">
+                    Coaching Individuel : 
+                  </h5>
+                  <p class="card-text">
+                    Le coaching individuel est une méthode constructive qui permet aux clients le développement de capacités personnelles et professionnelles pour toute conduite de changement. Il offre aux personnes des outils pour mieux comprendre leurs comportements et trouver un équilibre personnel et professionnel.
+                  </p>
+                </div>
+              </div>
+            </div>
+  
+            <!-- Article 2 : Développement Personnel -->
+            <div class="col-md-6 mb-4">
+              <div class="card">
+                <img
+                  src="collectif.jpeg"
+                  alt="Développement Personnel"
+                  class="card-img-top"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">
+                    Coaching Collectif : 
+                  </h5>
+                  <p class="card-text">
+                    Le coaching collectif se distingue du coaching individuel par sa portée. Ici, c'est le groupe qui est mis au premier plan. Autrement dit, le coach professionnel n'est pas là pour aider individuellement les membres d'une équipe, mais pour aider le collectif constitué de collaborateurs à relever un challenge commun.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section Formations -->
+<section id="formations" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-5">Nos Formations</h2>
+  
+      <div class="accordion" id="accordionFormations">
+        <!-- Formation 1 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              Leadership et Management
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionFormations">
+            <div class="accordion-body">
+              Cette formation vous aidera à développer vos compétences en leadership et en gestion d'équipe. Apprenez à inspirer, motiver et diriger efficacement.
+            </div>
+          </div>
+        </div>
+  
+        <!-- Formation 2 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              Communication et Prise de Parole en Public
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionFormations">
+            <div class="accordion-body">
+              Apprenez à améliorer votre communication interpersonnelle et à prendre la parole avec aisance devant un public, en renforçant votre confiance en vous.
+            </div>
+          </div>
+        </div>
+  
+        <!-- Formation 3 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              Gestion du Temps et Productivité
+            </button>
+          </h2>
+          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionFormations">
+            <div class="accordion-body">
+              Découvrez des stratégies efficaces pour mieux organiser votre temps, prioriser vos tâches et augmenter votre productivité au quotidien.
+            </div>
+          </div>
+        </div>
+  
+        <!-- Formation 4 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingFour">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+              Intelligence Émotionnelle et Gestion du Stress
+            </button>
+          </h2>
+          <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionFormations">
+            <div class="accordion-body">
+              Apprenez à mieux gérer vos émotions, à renforcer votre résilience face au stress et à interagir positivement avec votre entourage professionnel et personnel.
+            </div>
+          </div>
+        </div>
+  
+        <!-- Formation 5 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingFive">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+              Stratégies de Négociation et Influence
+            </button>
+          </h2>
+          <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionFormations">
+            <div class="accordion-body">
+              Développez vos compétences en négociation pour obtenir de meilleurs résultats dans vos interactions professionnelles et personnelles.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+      <!-- Galerie Photos -->
+      <div class="mb-5">
+        <h3 class="text-center">Galerie Photos</h3>
+        <div class="row">
+          <div class="col-md-4">
+            <img
+              src="discour.jpeg"
+              class="img-fluid rounded mb-3"
+              alt="Photo 1"
+            />
+          </div>
+          <div class="col-md-4">
+            <img
+              src="cc1.jpeg"
+              class="img-fluid rounded mb-3"
+              alt="Photo 2"
+            />
+          </div>
+          <div class="col-md-4">
+            <img
+              src="discourr.jpeg"
+              class="img-fluid rounded mb-3"
+              alt="Photo 3"
+            />
+          </div>
+        </div>
+      </div>
+
+     <!-- Section Témoignages Clients -->
+<section id="temoignages" class="container my-5 text-center">
+    <h2 class="mb-4">Témoignages Clients</h2>
+    <div class="row">
+        <!-- Témoignage 1 -->
+        <div class="col-md-4">
+            <div class="testimonial-box p-4 shadow-sm">
+                <img src="dame.jpeg" alt="Jean Dupont" class="rounded-circle mb-3">
+                <h5>MBA Odile</h5>
+                <p class="text-muted">Directeur Général</p>
+                <p class="testimonial-text">"Grâce à K-Venture, j'ai renforcé mon leadership et la cohésion de mon équipe. Une expérience transformatrice !"</p>
+            </div>
+        </div>
+        
+        <!-- Témoignage 2 -->
+        <div class="col-md-4">
+            <div class="testimonial-box p-4 shadow-sm">
+                <img src="demoiselle.jpeg" alt="Marie Lemoine" class="rounded-circle mb-3">
+                <h5>MBOUMBA Esther</h5>
+                <p class="text-muted">Manager RH</p>
+                <p class="testimonial-text">"Les formations de K-Venture ont totalement changé ma façon de gérer mon équipe. Un vrai plus pour ma carrière !"</p>
+            </div>
+        </div>
+
+        <!-- Témoignage 3 -->
+        <div class="col-md-4">
+            <div class="testimonial-box p-4 shadow-sm">
+                <img src="brel.jpeg" alt="Pierre Morel" class="rounded-circle mb-3">
+                <h5>NNANG Brel</h5>
+                <p class="text-muted">Entrepreneur</p>
+                <p class="testimonial-text">"Le coaching individuel m'a aidé à surmonter mes défis et à atteindre mes objectifs professionnels plus vite que prévu."</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="text-white py-4">
+    <div class="container">
+      <div class="row align-items-center">
+        <!-- Logo agrandi à gauche -->
+        <div class="col-md-4 text-center text-md-start">
+          <img src="logo1.jpeg" alt="K-Venture" class="footer-logo" />
+        </div>
+
+        <!-- Liens internes alignés horizontalement -->
+        <div class="col-md-4 text-center">
+          <div class="footer-links">
+            <a href="index.html" class="footer-link">Accueil</a>
+            <a href="services.html" class="footer-link">Services</a>
+            <a href="about.html" class="footer-link">À Propos</a>
+            <a href="blog.html" class="footer-link">Blog</a>
+            <a href="contact.html" class="footer-link">Contact</a>
+          </div>
+        </div>
+
+        <!-- Réseaux sociaux à droite -->
+        <div class="col-md-4 text-center text-md-end">
+          <a href="#" class="btn btn-outline-light btn-sm me-2">Facebook</a>
+          <a href="#" class="btn btn-outline-light btn-sm me-2">Twitter</a>
+          <a href="#" class="btn btn-outline-light btn-sm">LinkedIn</a>
+        </div>
+      </div>
+
+      <hr class="bg-light" />
+
+      <p class="text-center mb-0">
+        &copy; 2025 K-Venture. Tous droits réservés.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS, Popper.js -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

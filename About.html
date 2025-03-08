@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>K-Venture</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* Palette de couleurs */
+      :root {
+        --primary-green: #2e7d32; /* Vert foncé */
+        --secondary-green: #388e3c; /* Vert intermédiaire */
+        --light-green: #c8e6c9; /* Vert clair */
+        --dark-green: #1e5631; /* Vert très foncé */
+        --highlight-green: #4caf50; /* Vert plus vif */
+        --lime-green: #a4de02; /* Vert lime */
+      }
+
+      /* Corps de page */
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f9f9f9;
+        color: #333;
+      }
+
+      /* Navbar */
+      .navbar {
+        background-color: var(--primary-green);
+      }
+
+      .navbar-nav .nav-link {
+        color: white;
+      }
+
+      .navbar-nav .nav-link:hover {
+        color: var(--lime-green);
+      }
+
+      /* Section d'accueil avec image de fond */
+      .hero-section {
+        position: relative;
+        background: url("background.jpg") no-repeat center center/cover;
+        height: 100vh; /* Plein écran */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+      }
+
+      /* Overlay pour améliorer la lisibilité du texte */
+      .hero-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5); /* Assombrit légèrement l’image */
+      }
+
+      /* Empêcher l'overlay de cacher le contenu */
+      .hero-section .container {
+        position: relative;
+        z-index: 2;
+      }
+
+      /* Boutons */
+      .btn-primary {
+        background-color: var(--primary-green);
+        border-color: var(--primary-green);
+      }
+
+      .btn-primary:hover {
+        background-color: var(--secondary-green);
+        border-color: var(--secondary-green);
+      }
+
+      .btn-secondary {
+        background-color: var(--highlight-green);
+        border-color: var(--highlight-green);
+      }
+
+      .btn-secondary:hover {
+        background-color: var(--lime-green);
+        border-color: var(--lime-green);
+      }
+
+      /* Formulaire de contact */
+      .form-control {
+        border-color: var(--secondary-green);
+      }
+
+      .form-control:focus {
+        border-color: var(--highlight-green);
+      }
+
+      /* Section principale */
+      section {
+        padding: 50px 0;
+      }
+
+      /* Section Bio */
+      .bio-section {
+        display: flex;
+        align-items: center;
+        margin-top: 40px;
+      }
+
+      .bio-section img {
+        border-radius: 50%;
+        width: 180px;
+        height: 180px;
+        margin-right: 30px;
+      }
+
+      .bio-section .content {
+        max-width: 600px;
+      }
+
+      footer {
+        background-color: var(--dark-green);
+      }
+
+      .footer-logo {
+        width: 180px; /* Taille du logo */
+        height: auto;
+      }
+
+      .footer-links {
+        display: flex; /* Utilise flexbox pour aligner les liens horizontalement */
+        justify-content: center; /* Centre les liens */
+        gap: 30px; /* Espacement entre les liens */
+      }
+
+      .footer-link {
+        color: white; /* Texte des liens en blanc */
+        text-decoration: none; /* Pas de soulignement */
+        font-weight: bold;
+        padding: 5px 0; /* Espacement vertical pour améliorer la cliquabilité */
+      }
+
+      .footer-link:hover {
+        color: var(
+          --primary-green
+        ); /* Changement de couleur en vert lors du hover */
+        text-decoration: underline; /* Souligner les liens lors du hover */
+      }
+
+      footer .btn {
+        margin-right: 10px; /* Espace entre les boutons des réseaux sociaux */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">
+          <img src="logo1.jpeg" alt="K-Venture" height="50" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html"
+                >Accueil</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="services.html">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="About.html">À Propos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="blog.html">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- À propos -->
+    <section id="about" class="bg-light py-5">
+      <div class="container">
+        <h2 class="text-center mb-4">À propos de Sylvère BOUSSAMBA</h2>
+        <div class="row d-flex align-items-center">
+          <!-- Image à gauche -->
+          <div class="col-md-4 text-center text-md-start order-md-1">
+            <img
+              src="cc.jpeg"
+              alt="Sylvère Boussamba"
+              class="img-fluid w-100 custom-rounded"
+            />
+          </div>
+          <!-- Bio à droite -->
+          <div class="col-md-8 order-md-2">
+            <h4>Biographie</h4>
+            <p>
+              Certifié John C. Maxwell, Sylvère BOUSSAMBA est un expert en
+              coaching et développement personnel. Il a accompagné des leaders
+              d'organisations internationales telles que l'UNESCO et la Banque
+              Mondiale. Fort de plusieurs années d'expérience, il utilise des
+              approches personnalisées pour aider les individus et les équipes à
+              réaliser leur plein potentiel.
+            </p>
+
+            <h5>Mission et valeurs</h5>
+            <p>
+              Notre mission est de transformer le potentiel humain en
+              performance durable. Nous croyons en la collaboration,
+              l'innovation et le respect des valeurs éthiques. Chaque programme
+              de coaching et de formation est conçu pour apporter des résultats
+              concrets et mesurables.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="text-white py-4">
+      <div class="container">
+        <div class="row align-items-center">
+          <!-- Logo agrandi à gauche -->
+          <div class="col-md-4 text-center text-md-start">
+            <img src="logo1.jpeg" alt="K-Venture" class="footer-logo" />
+          </div>
+
+          <!-- Liens internes alignés horizontalement -->
+          <div class="col-md-4 text-center">
+            <div class="footer-links">
+              <a href="index.html" class="footer-link">Accueil</a>
+              <a href="services.html" class="footer-link">Services</a>
+              <a href="about.html" class="footer-link">À Propos</a>
+              <a href="blog.html" class="footer-link">Blog</a>
+              <a href="contact.html" class="footer-link">Contact</a>
+            </div>
+          </div>
+
+          <!-- Réseaux sociaux à droite -->
+          <div class="col-md-4 text-center text-md-end">
+            <a href="#" class="btn btn-outline-light btn-sm me-2">Facebook</a>
+            <a href="#" class="btn btn-outline-light btn-sm me-2">Twitter</a>
+            <a href="#" class="btn btn-outline-light btn-sm">LinkedIn</a>
+          </div>
+        </div>
+
+        <hr class="bg-light" />
+
+        <p class="text-center mb-0">
+          &copy; 2025 K-Venture. Tous droits réservés.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS, Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>

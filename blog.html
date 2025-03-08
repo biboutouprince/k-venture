@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>K-Venture</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* Palette de couleurs */
+      :root {
+        --primary-green: #2e7d32; /* Vert foncé */
+        --secondary-green: #388e3c; /* Vert intermédiaire */
+        --light-green: #c8e6c9; /* Vert clair */
+        --dark-green: #1e5631; /* Vert très foncé */
+        --highlight-green: #4caf50; /* Vert plus vif */
+        --lime-green: #a4de02; /* Vert lime */
+      }
+
+      /* Corps de page */
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f9f9f9;
+        color: #333;
+      }
+
+      /* Navbar */
+      .navbar {
+        background-color: var(--primary-green);
+      }
+
+      .navbar-nav .nav-link {
+        color: white;
+      }
+
+      .navbar-nav .nav-link:hover {
+        color: var(--lime-green);
+      }
+
+      /* Section d'accueil avec image de fond */
+      .hero-section {
+        position: relative;
+        background: url("background.jpg") no-repeat center center/cover;
+        height: 100vh; /* Plein écran */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+      }
+
+      /* Overlay pour améliorer la lisibilité du texte */
+      .hero-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5); /* Assombrit légèrement l’image */
+      }
+
+      /* Empêcher l'overlay de cacher le contenu */
+      .hero-section .container {
+        position: relative;
+        z-index: 2;
+      }
+
+      /* Boutons */
+      .btn-primary {
+        background-color: var(--primary-green);
+        border-color: var(--primary-green);
+      }
+
+      .btn-primary:hover {
+        background-color: var(--secondary-green);
+        border-color: var(--secondary-green);
+      }
+
+      .btn-secondary {
+        background-color: var(--highlight-green);
+        border-color: var(--highlight-green);
+      }
+
+      .btn-secondary:hover {
+        background-color: var(--lime-green);
+        border-color: var(--lime-green);
+      }
+
+      /* Formulaire de contact */
+      .form-control {
+        border-color: var(--secondary-green);
+      }
+
+      .form-control:focus {
+        border-color: var(--highlight-green);
+      }
+
+      /* Section principale */
+      section {
+        padding: 50px 0;
+      }
+
+      /* Section Bio */
+      .bio-section {
+        display: flex;
+        align-items: center;
+        margin-top: 40px;
+      }
+
+      .bio-section img {
+        border-radius: 50%;
+        width: 180px;
+        height: 180px;
+        margin-right: 30px;
+      }
+
+      .bio-section .content {
+        max-width: 600px;
+      }
+
+      footer {
+        background-color: var(--dark-green);
+      }
+
+      .footer-logo {
+        width: 180px; /* Taille du logo */
+        height: auto;
+      }
+
+      .footer-links {
+        display: flex; /* Utilise flexbox pour aligner les liens horizontalement */
+        justify-content: center; /* Centre les liens */
+        gap: 30px; /* Espacement entre les liens */
+      }
+
+      .footer-link {
+        color: white; /* Texte des liens en blanc */
+        text-decoration: none; /* Pas de soulignement */
+        font-weight: bold;
+        padding: 5px 0; /* Espacement vertical pour améliorer la cliquabilité */
+      }
+
+      .footer-link:hover {
+        color: var(
+          --primary-green
+        ); /* Changement de couleur en vert lors du hover */
+        text-decoration: underline; /* Souligner les liens lors du hover */
+      }
+
+      footer .btn {
+        margin-right: 10px; /* Espace entre les boutons des réseaux sociaux */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">
+          <img src="logo1.jpeg" alt="K-Venture" height="50" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html"
+                >Accueil</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="services.html">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="About.html">À Propos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="blog.html">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Section Article Développement Personnel -->
+    <section
+      id="article-developpement"
+      class="py-5"
+      style="background-color: #f9f9f9"
+    >
+      <div class="container">
+        <h2 class="text-center mb-5">À Lire : Développement Personnel</h2>
+        <div class="row justify-content-center">
+          <div class="col-md-8">
+            <div class="card border-0 shadow">
+              <img
+                src="devperso.jpeg"
+                alt="Développement Personnel"
+                class="card-img-top"
+              />
+              <div class="card-body">
+                <h3 class="card-title">
+                  Grandir Chaque Jour : L'Importance du Développement Personnel
+                </h3>
+                <p class="card-text">
+                  Le développement personnel est un processus continu qui vise à
+                  améliorer ses compétences, sa confiance en soi et son
+                  bien-être. Dans un monde en perpétuelle évolution, il est
+                  essentiel d’apprendre à s’adapter et à grandir
+                  continuellement. Cela passe par l’acquisition de nouvelles
+                  compétences, une meilleure gestion de ses émotions et une
+                  discipline quotidienne. Découvrez comment renforcer votre
+                  confiance en vous, fixer des objectifs clairs et transformer
+                  votre quotidien en adoptant des habitudes positives.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Article Leadership -->
+    <section
+      id="article-leadership"
+      class="py-5"
+      style="background-color: #f9f9f9"
+    >
+      <div class="container">
+        <h2 class="text-center mb-5">À Lire : Leadership</h2>
+        <div class="row justify-content-center">
+          <div class="col-md-8">
+            <div class="card border-0 shadow">
+              <img src="leader.jpeg" alt="Leadership" class="card-img-top" />
+              <div class="card-body">
+                <h3 class="card-title">
+                  Devenir un Leader Inspirant : Les Clés du Leadership Moderne
+                </h3>
+                <p class="card-text">
+                  Le leadership ne se résume pas à diriger une équipe, c’est
+                  l’art d’inspirer et de motiver les autres à donner le meilleur
+                  d’eux-mêmes. Un bon leader sait écouter, communiquer et
+                  prendre des décisions stratégiques tout en valorisant ses
+                  collaborateurs. Aujourd’hui, le leadership repose sur
+                  l’intelligence émotionnelle, la capacité à fédérer et la
+                  vision à long terme. Découvrez comment développer votre
+                  leadership, renforcer votre impact et bâtir une équipe
+                  performante autour de valeurs fortes.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Article Développement Personnel -->
+    <section
+      id="article-developpement"
+      class="py-5"
+      style="background-color: #f9f9f9"
+    >
+      <div class="container">
+        <h2 class="text-center mb-5">À Lire : Coaching Transformationnel</h2>
+        <div class="row justify-content-center">
+          <div class="col-md-8">
+            <div class="card border-0 shadow">
+              <img
+                src="coaching.webp"
+                alt="Développement Personnel"
+                class="card-img-top"
+              />
+              <div class="card-body">
+                <h3 class="card-title">Libérer votre Potentiel</h3>
+                <p class="card-text">
+                  Lorsque nous qualifions quelque chose de « transformationnel
+                  », nous parlons de quelque chose qui produit un changement
+                  important ou une amélioration des performances dans une
+                  situation. Le coaching transformationnel est une façon de
+                  travailler avec un client qui va au-delà de la surface du
+                  sujet présenté . Il a un impact fondamental sur « qui vous
+                  êtes ».
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="text-white py-4">
+      <div class="container">
+        <div class="row align-items-center">
+          <!-- Logo agrandi à gauche -->
+          <div class="col-md-4 text-center text-md-start">
+            <img src="logo1.jpeg" alt="K-Venture" class="footer-logo" />
+          </div>
+
+          <!-- Liens internes alignés horizontalement -->
+          <div class="col-md-4 text-center">
+            <div class="footer-links">
+              <a href="index.html" class="footer-link">Accueil</a>
+              <a href="services.html" class="footer-link">Services</a>
+              <a href="about.html" class="footer-link">À Propos</a>
+              <a href="blog.html" class="footer-link">Blog</a>
+              <a href="contact.html" class="footer-link">Contact</a>
+            </div>
+          </div>
+
+          <!-- Réseaux sociaux à droite -->
+          <div class="col-md-4 text-center text-md-end">
+            <a href="#" class="btn btn-outline-light btn-sm me-2">Facebook</a>
+            <a href="#" class="btn btn-outline-light btn-sm me-2">Twitter</a>
+            <a href="#" class="btn btn-outline-light btn-sm">LinkedIn</a>
+          </div>
+        </div>
+
+        <hr class="bg-light" />
+
+        <p class="text-center mb-0">
+          &copy; 2025 K-Venture. Tous droits réservés.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS, Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>
